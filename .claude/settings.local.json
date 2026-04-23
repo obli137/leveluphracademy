@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:api.anthropic.com)",
+      "Bash(curl -s \"https://api.anthropic.com/v1/design/h/2EKC810jc42p7IvMxoDO_A?open_file=levelUp+HR+Academy.html\" -o /tmp/design_file.gz)",
+      "Read(//tmp/**)",
+      "Bash(python3 -)",
+      "Bash(python3 -c ' *)",
+      "Bash(open \"/Users/marianoobligado/Documents/Proyectos/levelUp Academy/index.html\")",
+      "Bash(sips -z 64 64 \"/Users/marianoobligado/Documents/Proyectos/levelUp Academy/assets/logo-icon.png\" --out /tmp/favicon.png)"
+    ]
+  }
+}
