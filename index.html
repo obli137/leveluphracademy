@@ -11,7 +11,7 @@
 /* ── RESET ── */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { font-family:'Inter',sans-serif; background:#fff; color:#111; -webkit-font-smoothing:antialiased; overflow-x:clip; }
+body { font-family:'Inter',sans-serif; background:#fff; color:#111; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
 img { display:block; max-width:100%; }
 a { text-decoration:none; color:inherit; }
 
@@ -132,6 +132,7 @@ nav {
   font-size:clamp(18px, 2.2vw, 24px); font-weight:600; color:rgba(255,255,255,0.9);
   line-height:1.35; max-width:700px; margin-bottom:24px;
 }
+@media(max-width:480px){ .hero-subtitle br { display:none; } }
 .hero-body {
   font-size:16px; font-weight:400; line-height:1.7; color:rgba(255,255,255,0.72);
   max-width:620px; margin-bottom:32px;
@@ -264,7 +265,7 @@ nav {
   background:var(--yellow); color:var(--black);
   font-size:14px; font-weight:900; display:flex; align-items:center; justify-content:center;
 }
-.step-title { font-size:20px; font-weight:700; letter-spacing:-0.01em; margin-bottom:6px; }
+.step-title { font-size:clamp(17px,4.5vw,20px); font-weight:700; letter-spacing:-0.01em; margin-bottom:6px; }
 .step-desc { font-size:14px; color:var(--muted); line-height:1.6; }
 
 /* ── CIERRE CTA ── */
@@ -303,13 +304,30 @@ footer { background:var(--purple-dark); padding:56px var(--px); }
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="#"><img src="assets/logo-vertical.png" alt="levelUp" style="height:34px;"></a>
+    <a class="nav-logo" href="#"><img src="assets/logo-vertical.png" alt="levelUp" style="height:34px;"></a>
     <div class="nav-links">
       <a href="#programa">Programa</a>
       <a href="#instructor">Instructor</a>
       <a href="#proceso">Proceso</a>
     </div>
-    <a href="https://forms.gle/icnLJVzDEfjBBq8S6" target="_blank" class="btn btn-primary" style="font-size:12px;padding:11px 24px;">Aplicar →</a>
+    <div class="nav-right">
+      <details class="nav-mobile">
+        <summary aria-label="Abrir menú">
+          <span class="nav-burger">
+            <span class="nav-burger-line"></span>
+            <span class="nav-burger-line"></span>
+            <span class="nav-burger-line"></span>
+          </span>
+        </summary>
+        <div class="nav-mobile-panel">
+          <a href="#programa" onclick="this.closest('details').removeAttribute('open')">Programa</a>
+          <a href="#instructor" onclick="this.closest('details').removeAttribute('open')">Instructor</a>
+          <a href="#proceso" onclick="this.closest('details').removeAttribute('open')">Proceso</a>
+          <a href="https://forms.gle/icnLJVzDEfjBBq8S6" target="_blank" rel="noopener noreferrer" onclick="this.closest('details').removeAttribute('open')">Aplicar →</a>
+        </div>
+      </details>
+      <a href="https://forms.gle/icnLJVzDEfjBBq8S6" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta-desktop" style="font-size:12px;padding:11px 24px;">Aplicar →</a>
+    </div>
   </div>
 </nav>
 
